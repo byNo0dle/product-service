@@ -28,6 +28,7 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
     RestTemplate restTemplate;
 
     @Value("${api.tableId-service.uri}")
