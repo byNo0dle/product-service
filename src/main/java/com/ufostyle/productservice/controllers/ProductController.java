@@ -34,7 +34,7 @@ public class ProductController {
     }
 
     @GetMapping("/{idProduct}")
-    public Mono<ResponseEntity<Product>> findById(@PathVariable(name = "idProduct") long idProduct) {
+    public Mono<ResponseEntity<Product>> findById(@PathVariable(name = "idProduct") String idProduct) {
         return productService.findById(idProduct).map(product -> ResponseEntity.ok().body(product))
                 .onErrorResume(e -> {
                     log.info(e.getMessage());
@@ -54,14 +54,14 @@ public class ProductController {
             log.info("Status:" + HttpStatus.OK);
             return ResponseEntity.ok().body(_product);
         }).onErrorResume(e -> {
-            log.info("Status:" + HttpStatus.BAD_REQUEST + " menssage" + e.getMessage());
+            log.info("Status:" + HttpStatus.BAD_REQUEST + " message" + e.getMessage());
             return Mono.just(ResponseEntity.badRequest().build());
         }).defaultIfEmpty(ResponseEntity.noContent().build());
 
     };
 
     @DeleteMapping("/{idProduct}")
-    public Mono<ResponseEntity<Void>> delete(@PathVariable(name = "idProduct") long idProduct) {
+    public Mono<ResponseEntity<Void>> delete(@PathVariable(name = "idProduct") String idProduct) {
         return productService.findById(idProduct).flatMap(producto -> {
             return productService.delete(producto.getIdConfiguration()).then(Mono.just(ResponseEntity.ok().build()));
         });
