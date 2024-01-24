@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.ufostyle.productservice.entities","l":"Product"}];updateSearchResults();

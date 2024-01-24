@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.ufostyle.productservice.entities","c":"Product","l":"Product()","u":"%3Cinit%3E()"},{"p":"com.ufostyle.productservice.entities","c":"Product","l":"toString()"}];updateSearchResults();

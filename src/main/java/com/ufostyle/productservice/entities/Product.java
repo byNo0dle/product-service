@@ -7,6 +7,9 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Esto es la clase Product.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,21 +17,35 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "products")
 public class Product {
 
-    @Id
-    private String idProduct;
-    private ProductId productId;
-    private String descriptionProduct;
-    private TypeProduct typeProduct;
-    private String idConfiguration;
+  @Id
+  private String idProduct;
+  private ProductId productId;
+  private String descriptionProduct;
+  private TypeProduct typeProduct;
+  private String idConfiguration;
 
-    @Override
-    public String toString() {
-        return "Product[" +
-                "idProduct='" + idProduct + '\'' +
-                ", productId=" + productId +
-                ", descriptionProduct='" + descriptionProduct + '\'' +
-                ", typeProduct=" + typeProduct +
-                ", idConfiguration='" + idConfiguration + '\'' +
-                "]";
-    }
+  @Override
+  public String toString() {
+    return "Product["
+        +
+        "idProduct='"
+        + idProduct
+        + '\''
+        +
+        ", productId="
+        + productId
+        +
+        ", descriptionProduct='"
+        + descriptionProduct
+        + '\''
+        +
+        ", typeProduct="
+        + typeProduct
+        +
+        ", idConfiguration='"
+        + idConfiguration
+        + '\''
+        +
+        "]";
+  }
 }
