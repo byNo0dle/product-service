@@ -1,11 +1,15 @@
 package com.ufostyle.productservice.entities;
 
+import lombok.Builder;
+import lombok.Data;
+
 /**
- * Esto es el enum TypeProduct.
+ * Esto es la clase TypeProduct.
  */
-public enum TypeProduct {
-  //creditos
-  ACTIVOS,
-  //cuentas bancarias
-  PASIVOS;
+@Builder
+@Data
+public class TypeProduct {
+
+  private String typeProductId;
+  private String descriptionTypeProduct;
 }

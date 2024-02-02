@@ -1,6 +1,7 @@
 package com.ufostyle.productservice.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,33 +15,30 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Document(collection = "products")
 public class Product {
 
   @Id
-  private String idProduct;
-  private ProductId productId;
-  private String descriptionProduct;
-  private TypeProduct typeProduct;
+  private String id;
+  private ProductId piProduct;
+  private TypeProduct tpProduct;
   private String idConfiguration;
 
   @Override
   public String toString() {
     return "Product["
         +
-        "idProduct='"
-        + idProduct
+        "id='"
+        + id
         + '\''
         +
-        ", productId="
-        + productId
-        +
-        ", descriptionProduct='"
-        + descriptionProduct
+        ", piProduct="
+        + piProduct
         + '\''
         +
-        ", typeProduct="
-        + typeProduct
+        ", tpProduct="
+        + tpProduct
         +
         ", idConfiguration='"
         + idConfiguration

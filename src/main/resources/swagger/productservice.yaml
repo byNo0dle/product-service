@@ -1,0 +1,200 @@
+openapi: 3.0.0
+info:
+  title: Product API
+  version: 1.0.0
+  description: API for managing bank products. BootCamp Microservices 49.
+  contact:
+    name: No0dl3 Support
+    url: https://github.com/byNo0dle
+servers:
+  - url: http://localhost:9004/api
+    description: Product Service
+paths:
+  /product:
+    get:
+      tags:
+        - Product
+      summary: Find all Product
+      operationId: findAllProduct
+      responses:
+        '200':
+          description: List of Products retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Proceeds'
+        '400':
+          description: Bad Request invalid syntax
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProceedsError'
+        '404':
+          description: Not Found Product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProceedsError'
+    post:
+      tags:
+        - Product
+      summary: Add a new Product to the bank
+      description: Add a new Product to the bank
+      operationId: saveProduct
+      requestBody:
+        description: Create a new Product in the bank
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Proceeds'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proceeds'
+        '400':
+          description: Bad Request invalid syntax
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProceedsError'
+        '404':
+          description: Not Found Product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProceedsError'
+    put:
+      tags:
+        - Product
+      summary: Update an existing Product
+      description: Update an existing Product by Id
+      operationId: updateProduct
+      requestBody:
+        description: Update an existent Product in the bank
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Proceeds'
+        required: true
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proceeds'
+        '400':
+          description: Bad Request invalid syntax
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProceedsError'
+        '404':
+          description: Not Found Product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProceedsError'
+  /product/{id}:
+    get:
+      tags:
+        - Product
+      summary: Find Product by ID
+      description: Returns a single Product
+      operationId: findByIdProduct
+      parameters:
+        - name: id
+          in: path
+          description: ID of Product to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Proceeds'
+        '400':
+          description: Bad Request invalid syntax
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProceedsError'
+        '404':
+          description: Not Found Product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProceedsError'
+    delete:
+      tags:
+        - Product
+      summary: Deletes a Product
+      description: Delete a Product
+      operationId: deleteProduct
+      parameters:
+        - name: id
+          in: path
+          description: Product id to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Not Content Product
+        '404':
+          description: Not Found Product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProceedsError'
+
+components:
+  schemas:
+    Proceeds:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 65xd2dx0x7d11d2x20827638
+        idProduct:
+          $ref: '#/components/schemas/IdProduct'
+        productType:
+          $ref: '#/components/schemas/ProductType'
+        idConfiguration:
+          type: string
+          example: 1
+    IdProduct:
+      properties:
+        productId:
+          type: string
+          example: Ahorro, CuentaCorriente, PlazoFijo, Personal, Empresarial, TarjetaCreditoEmpresarial, TarjetaCreditoPersonal, Pyme, Vip;
+        descriptionProduct:
+          type: string
+          example: Esto es una cuenta bancaria libre de comisión por mantenimiento y con un límite máximo de movimientos mensuales.
+    ProductType:
+      properties:
+        typeProductId:
+          type: string
+          example: Activos, Pasivos
+        descriptionTypeProduct:
+          type: string
+          example: Esto es un tipo de cuentas bancarias.
+    ProceedsError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message

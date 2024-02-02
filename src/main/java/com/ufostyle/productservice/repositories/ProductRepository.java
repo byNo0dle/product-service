@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 /**
  * Esto es la interfaz ProductRepository.
  */
-@Repository
 public interface ProductRepository extends ReactiveMongoRepository<Product, String> {
 }

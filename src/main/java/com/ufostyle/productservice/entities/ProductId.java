@@ -1,14 +1,15 @@
 package com.ufostyle.productservice.entities;
 
+import lombok.Builder;
+import lombok.Data;
+
 /**
- * Esto es el enum ProductId.
+ * Esto es la clase ProductId.
  */
-public enum ProductId {
-  AHORRO,
-  CUENTACORRIENTE,
-  PLAZOFIJO,
-  PERSONAL,
-  EMPRESARIAL,
-  TARJETACREDITOEMPRESARIAL,
-  TARJETACREDITOPERSONAL;
+@Builder
+@Data
+public class ProductId {
+
+  private String productId;
+  private String descriptionProduct;
 }
