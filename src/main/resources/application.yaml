@@ -6,3 +6,11 @@ spring:
       database: bank
       port: '27017'
       host: localhost
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
