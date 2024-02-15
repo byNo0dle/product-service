@@ -1,0 +1,16 @@
+name: Product
+on:
+  push:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line scripts
+        run: echo Hello, world Mr. Saurino!!!
