@@ -1,0 +1,8 @@
+server:
+  port: 9003
+
+spring:
+  data:
+    mongodb:
+      database: ProductDB
+      uri: 'mongodb+srv://${BD_USER}:${BD_PASSWORD}@cluster0.m5vgmwl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
