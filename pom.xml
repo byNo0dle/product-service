@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ufostyle</groupId>
-	<artifactId>product-service</artifactId>
+	<artifactId>product-microservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>product-service</name>
+	<name>product-microservice</name>
 	<description>Product Service</description>
 	<properties>
 		<java.version>11</java.version>
