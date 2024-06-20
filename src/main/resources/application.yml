@@ -2,12 +2,11 @@ server:
   port: 0
 
 spring:
-  data:
-    mongodb:
-      database: ProductDB
-      uri: 'mongodb+srv://${BD_USER}:${BD_PASSWORD}@cluster0.m5vgmwl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
   application:
     name: product-microservice
+  cloud:
+    config:
+      profile: dev
 
 eureka:
   instance:
