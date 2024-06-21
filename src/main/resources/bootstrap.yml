@@ -2,12 +2,19 @@ server:
   port: 0
 
 spring:
+  application:
+    name: product-microservice
   cloud:
     config:
       uri: http://localhost:8888
       profile: dev
-  application:
-    name: product-microservice
+    vault:
+      application-name: product-microservice
+      host: localhost
+      port: 8200
+      scheme: http
+      authentication: TOKEN
+      token: 00000000-0000-0000-0000-000000000000
 
 eureka:
   instance:
